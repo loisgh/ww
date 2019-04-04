@@ -5,11 +5,10 @@ def nth_smallest(count, nth):
     nums = random.sample(range(count), (count))
     heapq.heapify(nums)
     result = heapq.nsmallest(nth, nums)
-    return result[-1]
+    print(result[-1])
 
-
-print(nth_smallest(500, 47))
-
-
+#count is number of random numbers
+#nth is nth number you want returned
+nth_smallest(500, 4)
 
 
