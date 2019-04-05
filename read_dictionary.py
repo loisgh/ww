@@ -20,18 +20,28 @@ class readDictionary:
         dict_data = None
         if readDictionary.doesFileExist(filename):
             dict_data = readDictionary.get_dictionary(filename)
-            readDictionary.parseandprintDictionary(dict_data)
+            dictionary = readDictionary.parseDictionary(dict_data)
+            readDictionary.printDictionary(dictionary)
         return dict_data
 
+
     @staticmethod
-    def parseandprintDictionary(dict_data):
-        dictionary = dict_data.split('\n')
-        for word in dictionary:
-            definitions = word.split("–")
-            for definition in definitions:
-                defs = definition.strip().split(",")
-                for each_def in defs:
-                    print(each_def.strip())
+    def parseDictionary(dict_data):
+        dictionary = {}
+        dictionary_list = dict_data.split('\n')
+        for item in dictionary_list:
+            items = item.split(" – ")
+            key = items[0]
+            value = items[1].split(", ")
+            dictionary[key] = value
+        return dictionary
+
+    @staticmethod
+    def printDictionary(dictionary):
+        for key, values in dictionary.items():
+            print(key)
+            for value in values:
+                print(value)
 
 
 readDictionary.readfromDictionary('dictionary.txt')
