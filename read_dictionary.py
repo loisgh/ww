@@ -11,9 +11,8 @@ class readDictionary:
 
     @staticmethod
     def get_dictionary(in_dict):
-        dict_file = open(in_dict,'r')
-        dict_data = dict_file.read()
-        dict_file.close()
+        with open(in_dict, 'r') as dict_file:
+            dict_data = dict_file.read()
         return dict_data
 
     @staticmethod
