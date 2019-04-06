@@ -1,6 +1,7 @@
 from selenium import webdriver
 
 import unittest
+import time
 
 class AutoTest(unittest.TestCase):
 
@@ -24,8 +25,3 @@ class AutoTest(unittest.TestCase):
         inputElement.send_keys('10011')
         driver.find_element_by_css_selector('.input-item.input-group.arrow-btn')\
             .find_element_by_tag_name('button').click()
-
-        print(driver.find_element_by_css_selector('.location__name').text)
-        print(driver.find_element_by_css_selector('.location__distance').text)
-        element = driver.find_element_by_css_selector('.meeting-location__top')
-        element.find_element_by_tag_name('a').click()
